@@ -1,2 +1,3 @@
+openpyxl==3.0.9
 pandas==1.2.0
 PySimpleGUI==4.41.2
