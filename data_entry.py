@@ -36,7 +36,8 @@ while True:
     if event == 'Clear':
         clear_input()
     if event == 'Submit':
-        df = df.append(values, ignore_index=True)
+        new_record = pd.DataFrame(values, index=[0])
+        df = pd.concat([df, new_record], ignore_index=True)
         df.to_excel(EXCEL_FILE, index=False)
         sg.popup('Data saved!')
         clear_input()
