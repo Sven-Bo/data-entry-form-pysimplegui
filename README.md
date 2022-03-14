@@ -8,6 +8,13 @@ Did you know you can use Python code to create an Excel Data Entry Form? This is
 
 [![YouTube Video](https://img.youtube.com/vi/svcv8uub0D0/0.jpg)](https://youtu.be/svcv8uub0D0)
 
+## Changes after releasing the video
+With `pandas version 1.4.0` DataFrame.append() and Series.append() have been deprecated and will be removed in a future version
+```diff
+- df = df.append(values, ignore_index=True)
++ new_record = pd.DataFrame(values, index=[0])
++ df = pd.concat([df, new_record], ignore_index=True)
+```
 
 ## Author
 
