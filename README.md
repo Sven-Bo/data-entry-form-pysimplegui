@@ -29,5 +29,5 @@ With `pandas version 1.4.0` DataFrame.append() and Series.append() have been dep
 If you have any feedback, please reach out to me at contact@pythonandvba.com
 
 
-![Logo](https://www.pythonandvba.com/github-banner)
+![Logo](https://www.pythonandvba.com/banner-img)
 
