@@ -1,10 +1,13 @@
+from pathlib import Path
+
 import PySimpleGUI as sg
 import pandas as pd
 
 # Add some color to the window
 sg.theme('DarkTeal9')
 
-EXCEL_FILE = 'Data_Entry.xlsx'
+current_dir = Path(__file__).parent if '__file__' in locals() else Path.cwd()
+EXCEL_FILE = current_dir / 'Data_Entry.xlsx'
 df = pd.read_excel(EXCEL_FILE)
 
 layout = [
