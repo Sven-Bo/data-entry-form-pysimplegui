@@ -1,5 +1,4 @@
 from pathlib import Path
-
 import PySimpleGUI as sg
 import pandas as pd
 
@@ -8,7 +7,12 @@ sg.theme('DarkTeal9')
 
 current_dir = Path(__file__).parent if '__file__' in locals() else Path.cwd()
 EXCEL_FILE = current_dir / 'Data_Entry.xlsx'
-df = pd.read_excel(EXCEL_FILE)
+
+# Load the data if the file exists, if not, create a new DataFrame
+if EXCEL_FILE.exists():
+    df = pd.read_excel(EXCEL_FILE)
+else:
+    df = pd.DataFrame()
 
 layout = [
     [sg.Text('Please fill out the following fields:')],
@@ -41,7 +45,7 @@ while True:
     if event == 'Submit':
         new_record = pd.DataFrame(values, index=[0])
         df = pd.concat([df, new_record], ignore_index=True)
-        df.to_excel(EXCEL_FILE, index=False)
+        df.to_excel(EXCEL_FILE, index=False)  # This will create the file if it doesn't exist
         sg.popup('Data saved!')
         clear_input()
 window.close()
